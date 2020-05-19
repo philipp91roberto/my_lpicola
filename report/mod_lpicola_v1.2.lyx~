@@ -1,0 +1,2591 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{xcolor}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+A Modified Version of L-PICOLA to Output the Gravitational Potential
+\end_layout
+
+\begin_layout Author
+Philipp Miotti
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+target "miottiph@student.ethz.ch"
+type "mailto:"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, Raphael Sgier
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+target "rsgier@phys.ethz.ch"
+type "mailto:"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+Institute for Particle Physics and Astrophysics, Department of Physics,
+\backslash
+
+\backslash
+ETH Zurich, Wolfgang-Pauli-Strasse 27, 8093 Zurich, Switzerland
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abstract}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We modify the approximate 
+\begin_inset Formula $N$
+\end_inset
+
+-body simulation code L-PICOLA to output the peculiar gravitational potential
+ at the positions of the dark matter particles and on the mesh in snapshot
+ mode.
+ After solving the gravitational Poisson equation of the dark matter particles
+ in a comoving frame, we find that the output potential of our pipeline
+ is consistent with the outputted mass overdensity.
+ The spherical harmonic power spectrum of the potential – computed from
+ HEALPix maps of a 
+\begin_inset Formula $z=0$
+\end_inset
+
+ snapshot – shows an agreement within 
+\begin_inset Formula $\unit[10]{\%}$
+\end_inset
+
+ for scales 
+\begin_inset Formula $l\lesssim30$
+\end_inset
+
+ and 
+\begin_inset Formula $l\gtrsim100$
+\end_inset
+
+, and around 
+\begin_inset Formula $\sim\unit[15]{\%}$
+\end_inset
+
+ for 
+\begin_inset Formula $30\lesssim l\lesssim100$
+\end_inset
+
+ between the L-PICOLA potential output and the potential from the solved
+ Poisson equation.
+ The average of the potential over a concentric shell from the centre of
+ the simulation box as a function of its radius differ no more than 
+\begin_inset Formula $\unit[10]{\%}$
+\end_inset
+
+ in all shells.
+ From the probability distribution function of the outputs we find, that
+ the difference of the means is less than 
+\begin_inset Formula $\unit[3.3]{\%}$
+\end_inset
+
+ relatively to the RMS of their standard deviation.
+ Our modifications can be useful to construct lensing-potential and deflection-a
+ngle maps from a fast and accurate alternative to other 
+\begin_inset Formula $N$
+\end_inset
+
+-body simulations, such as GADGET-2.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abstract}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Recent cosmological models suggest that the formation of very large structures
+ in the universe is based on the gravitational amplification of small density
+ perturbations.
+ Theoretical models give analytical results on linear scales, but fail at
+ precisely describing non-linear scales.
+ The main tools to accurately describe the structure formation on very small
+ scales in the non-linear regime resolved by present cosmological surveys
+ are 
+\begin_inset Formula $N$
+\end_inset
+
+-Body simulations.
+ A simulations which meets these great demands in accuracy and performance
+ is GADGET-2 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{gadget}
+\end_layout
+
+\end_inset
+
+.
+ On the other hand, a large sample of simulations is necessary to reduce
+ the statistical noise in the covariance matrix, which is clearly limited
+ by the computational power 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{ufalcon}
+\end_layout
+
+\end_inset
+
+.
+ The new generation of approximate 
+\begin_inset Formula $N$
+\end_inset
+
+-body simulations, such as L-PICOLA 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{lpicola,cola,2lpt}
+\end_layout
+
+\end_inset
+
+, provide a balance between these two needs.
+\end_layout
+
+\begin_layout Standard
+The goal of this paper is to introduce modifications to L-PICOLA in order
+ to compute and output the gravitational potential at the particle positions
+ as well as on a 3-dimensional mesh in snapshot mode.
+ It is a computational feature which is present in GADGET-2, but lacks in
+ L-PICOLA yet.
+ Knowing the gravitational potential of a simulation output is necessary
+ to compute weak lensing maps for CMB lensing.
+ It was found that the power spectra of approximate dark matter fields from
+ L-PICOLA agree with that from GADGET-2 to within 
+\begin_inset Formula $\unit[5]{\%}$
+\end_inset
+
+ on all scales of interest to Baryon Acoustic Oscillation 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{bao}
+\end_layout
+
+\end_inset
+
+ and Redshift Space Distortions 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{rsd}
+\end_layout
+
+\end_inset
+
+ measurements, and to within 
+\begin_inset Formula $\unit[20]{\%}$
+\end_inset
+
+ up to 
+\begin_inset Formula $k=\unit[1.0\,h]{Mpc^{-1}}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{lpicola}
+\end_layout
+
+\end_inset
+
+.
+ In terms of speed, so is L-PICOLA able to produce a dark matter simulation
+ 3 orders of magnitude faster than the fully non-linear 
+\begin_inset Formula $N$
+\end_inset
+
+-body simulation GADGET-2 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{lpicola}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This paper is organized as follows.
+ In section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Model-equations-and"
+
+\end_inset
+
+ we briefly introduce the Poisson equation relating the gravitational potential
+ with the mass overdensity and introduce dimensionless variables for our
+ calculations.
+ We discuss in detail the modifications to L-PICOLA we made to output the
+ gravitational potential at the particle positions and on the mesh in section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Modifications-to-L-PICOLA"
+
+\end_inset
+
+.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Test-simulation"
+
+\end_inset
+
+ provides a description of a test simulation and tools we performed to verify
+ the output of our modified code.
+ We perform a statistical analysis in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Analysis-and-verification"
+
+\end_inset
+
+ of the potential by computing the spherical harmonic power spectrum, the
+ average as a function of distance from the centre of the simulation box
+ and the probability distribution function.
+ Lastly, the results are discussed in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Conclusion"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Model equations and dimensionless variables
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Model-equations-and"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section we present the dimensionless Poisson equation of the peculiar
+ gravitational potential 
+\begin_inset Formula $\phi$
+\end_inset
+
+ of the dark matter particles (DM) for periodic boundary conditions in a
+ comoving reference frame.
+ This equation is solved in the Particle-Mesh (PM) algorithm of L-PICOLA
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{lpicola}
+\end_layout
+
+\end_inset
+
+.
+ For a good review and implementation of this method we refer to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{pm_org}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{pm_imp}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The dynamics of a system consisting of DM in a computational box of size
+ 
+\begin_inset Formula $L^{3}$
+\end_inset
+
+ is described by 
+\begin_inset Formula 
+\begin{equation}
+\nabla^{2}\phi(\mathbf{x})=4\pi G\Omega_{m,0}\rho_{cr,0}\delta(\mathbf{x})a^{-1},\quad\rho_{cr,0}=\frac{3H_{0}^{2}}{8\pi G},\quad\delta(\mathbf{x})\equiv\frac{\rho(\mathbf{x})-\bar{\rho}}{\bar{\rho}},\label{eq:poisson}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\Omega_{m,0}$
+\end_inset
+
+ is the matter density parameter, 
+\begin_inset Formula $\rho_{cr,0}$
+\end_inset
+
+ is the critical density and 
+\begin_inset Formula $\delta$
+\end_inset
+
+ is the overdensity with respect to the 
+\begin_inset Formula $\Omega_{m,0}$
+\end_inset
+
+ fraction of 
+\begin_inset Formula $\rho_{cr,0}$
+\end_inset
+
+ at a specific time 
+\begin_inset Formula $a(t)=\left(1+z\right)^{-1}$
+\end_inset
+
+.
+ All cosmological parameters with a subscript 
+\begin_inset Formula $'0'$
+\end_inset
+
+ refer to the present value (
+\begin_inset Formula $z=0$
+\end_inset
+
+).
+ In order to solve the discrete version of Eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:poisson"
+
+\end_inset
+
+ on a equidistant mesh, we introduce the length of a cell 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ and the unit of time 
+\begin_inset Formula $1/H_{0}$
+\end_inset
+
+ with the Hubble constant 
+\begin_inset Formula $H_{0}=\unit[100\ h]{km\,s^{-1}\,Mpc^{-1}}$
+\end_inset
+
+.
+ Now, we can cast Eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:poisson"
+
+\end_inset
+
+ into the following dimensionless form (tildes denote dimensionless variables
+ – code units): 
+\begin_inset Formula 
+\begin{equation}
+\tilde{\nabla}^{2}\tilde{\phi}(\tilde{\text{\textbf{x}}})=\frac{3}{2}\frac{\Omega_{m,0}}{a}\left(\tilde{\rho}(\tilde{\text{\textbf{x}}})-1\right),\label{eq:poisson_dimless}
+\end{equation}
+
+\end_inset
+
+ where we used the variable transformations:
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}=x_{0}\tilde{\mathbf{x}},\quad t=\tilde{t}/H_{0},\label{eq:dimlessunits}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\phi=\tilde{\phi}\left(x_{0}H_{0}\right)^{2},\quad\rho=\tilde{\rho}\frac{3H_{0}^{2}}{8\pi G}\frac{\Omega_{m,0}}{a^{3}}.\label{eq:gpot_dens_dimless}
+\end{equation}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Now, we approximate 
+\begin_inset Formula $\tilde{\rho}$
+\end_inset
+
+ on a discrete mesh.
+ Let 
+\begin_inset Formula $N_{mesh}$
+\end_inset
+
+ and 
+\begin_inset Formula $N_{sample}$
+\end_inset
+
+ be the number of mesh cells and the number of particles respectively in
+ one direction, and 
+\begin_inset Formula $N$
+\end_inset
+
+ the total number of particles in one cell.
+ The density in a single cell of the box can be written as 
+\begin_inset Formula $\rho_{i,j,k}=M/x_{0}^{3}$
+\end_inset
+
+, where 
+\begin_inset Formula $i,j,k=1,...,N_{mesh}$
+\end_inset
+
+ and 
+\begin_inset Formula $M$
+\end_inset
+
+ is the total mass inside the cell.
+ By virtue of Eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:gpot_dens_dimless"
+
+\end_inset
+
+ and the particle's mass 
+\begin_inset Formula $m=\Omega_{m,0}\rho_{cr,0}\left(L/N_{sample}\right)^{3}$
+\end_inset
+
+ we get 
+\begin_inset Formula $\tilde{\rho}_{i,j,k}=N\left(N_{mesh}a/N_{sample}\right)^{3}$
+\end_inset
+
+.
+ In L-PICOLA this is done by using a Cloud-in-Cell (CIC) assignment at each
+ mesh node 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{lpicola}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+From this point we can solve Eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:poisson_dimless"
+
+\end_inset
+
+ for 
+\begin_inset Formula $\tilde{\phi}$
+\end_inset
+
+ with two methods using the discrete Fourier transform (DFT).
+ In section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Modifications-to-L-PICOLA"
+
+\end_inset
+
+ we will transform the equation to Fourier space from the start and then
+ apply the discretization.
+ The Laplace operator then converts to merely a factor 
+\begin_inset Formula $-\mathbf{k}^{2}$
+\end_inset
+
+.
+ In section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Analysis-and-verification"
+
+\end_inset
+
+ however, we will first write the Laplace operator in its discrete form
+ and the and solve the equation in Fourier space.
+\end_layout
+
+\begin_layout Section
+Modifications of L-PICOLA
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Modifications-to-L-PICOLA"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the introduction of dimensionless equations and variables in the previous
+ section, we are now prepared to present the modifications to L-PICOLA to
+ output the peculiar gravitational potential at the particle positions and
+ on the mesh for simulations in snapshot mode.
+ First, we create a new data member for each particle and write the potential
+ from the initial conditions in 
+\family typewriter
+2LPT.c
+\family default
+ to a new variable.
+ In file 
+\family typewriter
+auxPM.c
+\family default
+ we copied the value of the potential 
+\begin_inset Formula $\tilde{\phi}$
+\end_inset
+
+ from an intermediate step of the PM algorithm.
+ Finally, we add this new data member to the output files in both ASCII
+ format and unformatted binary.
+ Like all other variables in the source file, we define new variables in
+ 
+\family typewriter
+vars.c
+\family default
+ and 
+\family typewriter
+vars.h
+\family default
+.
+ In order to compile the modified code with the option to output the potential
+ at the particle positions, the preprocessor directive 
+\family typewriter
+POTENTIAL
+\family default
+ needs to be defined in the 
+\family typewriter
+Makefile
+\family default
+.
+ If the potential on the mesh is requested, the directive 
+\family typewriter
+GONGRID
+\family default
+ must be enabled additionally.
+ All modifications refer to L-PICOLA v1.2, December 2015
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+target "https:/cullanhowlett.github.io/l-picola."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ The modified version can be found at 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The calculation of 
+\begin_inset Formula $\tilde{\phi}$
+\end_inset
+
+ in L-PICOLA first appears in generating the initial conditions of the particles
+ using second order Lagrangian perturbation theory (2LPT) used by the COLA
+ method 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{cola}
+\end_layout
+
+\end_inset
+
+.
+ Thereby, one can choose between either Gaussian or Non-Gaussian initial
+ conditions.
+ No potential is computed in the Gaussian case as opposed to the Non-Gaussian
+ case, where the value is copied to a new variable, a data member of the
+ particle.
+ This is done in the file 
+\family typewriter
+2LPT.c
+\family default
+ of the source code.
+\end_layout
+
+\begin_layout Standard
+The greatest modifications regarding the computation of 
+\begin_inset Formula $\tilde{\phi}$
+\end_inset
+
+ were made on 
+\family typewriter
+auxPM.c
+\family default
+, where the PM algorithm is implemented.
+ The original steps starting from the particle positions are as follows:
+\end_layout
+
+\begin_layout Enumerate
+CIC interpolation to the mesh to get the mass density 
+\begin_inset Formula $\tilde{\rho}_{i,j,k}$
+\end_inset
+
+ at each mesh point.
+\end_layout
+
+\begin_layout Enumerate
+FFT of 
+\begin_inset Formula $\tilde{\rho}_{i,j,k}$
+\end_inset
+
+ and solving Eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:poisson_dimless"
+
+\end_inset
+
+ in Fourier-space,
+\begin_inset Formula 
+\begin{equation}
+\mathbf{k}^{2}\tilde{\phi}_{i,j,k}(\mathbf{k})=\frac{3}{2}\frac{\Omega_{m,0}}{a}\tilde{\delta}_{i,j,k}(\mathbf{k}),\quad\mathbf{k}=\left(i,j,k\right),\label{eq:fft_disc_poisson}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\tilde{\delta}_{i,j,k}(\tilde{\mathbf{x}})\equiv\tilde{\rho}_{i,j,k}(\tilde{\mathbf{x}})-1.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+Calculating the force at each mesh point, 
+\begin_inset Formula 
+\begin{equation}
+\tilde{F}_{i,j,k}(\mathbf{k})=\mathbf{k}\tilde{\phi}_{i,j,k}(\mathbf{k}),\label{eq:force}
+\end{equation}
+
+\end_inset
+
+ using the inverse FFT to get the force in real-space and the inverse CIC
+ method to interpolate 
+\begin_inset Formula $\tilde{F}_{i,j,k}$
+\end_inset
+
+ to the particle positions.
+\end_layout
+
+\begin_layout Standard
+In our modification we copy the result from step 2, save it as a new variable
+ and perform a parallel FFT using the same C libraries (FFTW
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.fftw.org/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+) as in the original code.
+ After that, we use the inverse CIC method to interpolate the potential
+ to the particle positions.
+\end_layout
+
+\begin_layout Standard
+To output the potential at the particle positions in ASCII format we simply
+ add a new column in the output file just after the particle positions and
+ velocities.
+ For data in unformatted binary format (i.e.
+ 
+\family typewriter
+GADGET_STYLE
+\family default
+ in L-PICOLA snapshot mode) the values are written as a compound block,
+ which are associated with the particle positions through their output order.
+ For the potential on the mesh we write a new function (under the preprocessor
+ directive 
+\family typewriter
+GONGRID
+\family default
+) similar to that, which handles the output in snapshot mode.
+ It writes the potential in a newly created data file (in the output folder)
+ either in ASCII format or unformatted binary.
+ The function is called at every output redshift.
+\end_layout
+
+\begin_layout Standard
+In the next section we will show a snapshot simulation with the above mentioned
+ modifications, i.e the gravitational potential at the particle positions.
+ The results are also representative for a test simulation of the potential
+ on the mesh, as they merely differ in the CIC interpolation used.
+\end_layout
+
+\begin_layout Section
+Test simulation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Test-simulation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After we presented our modifications to L-PICOLA in the previous section,
+ we now show the results of a simulation outputting the potential at the
+ particle positions at redshift 
+\begin_inset Formula $z=0$
+\end_inset
+
+.
+ We therefore run a simulation (with the COLA method enabled) from 
+\begin_inset Formula $z=9$
+\end_inset
+
+ to 
+\begin_inset Formula $z=0$
+\end_inset
+
+.
+ The box has a edge length of 
+\begin_inset Formula $L=\unit[100\,h^{-1}]{Mpc}$
+\end_inset
+
+ with 
+\begin_inset Formula $N_{sample}=128$
+\end_inset
+
+ particles and a mesh size 
+\begin_inset Formula $N_{mesh}=128$
+\end_inset
+
+ in one dimension.
+ Further we set the matter density parameter 
+\begin_inset Formula $\Omega_{m,0}=0.276$
+\end_inset
+
+, the Hubble parameter 
+\begin_inset Formula $h=0.7$
+\end_inset
+
+, the power spectrum normalization 
+\begin_inset Formula $\sigma_{8}=0.83$
+\end_inset
+
+ and primordial index 
+\begin_inset Formula $n_{s}=0.96$
+\end_inset
+
+.
+ Then, we plot the potential with the HEALPix
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+target "http://healpix.sourceforge.net"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ hierarchical tessellation of the unit sphere 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{healpix}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/lpicola_hmap_sim copy.png
+	lyxscale 20
+	scale 70
+
+\end_inset
+
+
+\begin_inset VSpace vfill
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/lpicola_hmap_poisson copy.png
+	lyxscale 20
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+All-sky maps of the gravitational potential from data of L-PICOLA.
+ 
+\shape italic
+Top image:
+\shape default
+ Potential in code units obtained from the code output directly.
+ 
+\shape italic
+Bottom image: 
+\shape default
+Potential in code units obtained from the particle positions after solving
+ Eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:fftsolved_pot"
+
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:healpix_lpicola"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/gadgte_hmap_sim copy.png
+	lyxscale 20
+	scale 70
+
+\end_inset
+
+
+\begin_inset VSpace vfill
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/gadget_hmap_poisson copy.png
+	lyxscale 20
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+All-sky maps of the gravitational potential from data of GADGET-2.
+ 
+\shape italic
+Top image:
+\shape default
+ Potential in code units obtained from the code output directly.
+ 
+\shape italic
+Bottom image: 
+\shape default
+Potential in code units obtained from the particle positions after solving
+ Eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:fftsolved_pot"
+
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:healpix_gadget"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the top image of Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:healpix_lpicola"
+
+\end_inset
+
+ we show the gravitational potential in code units 
+\begin_inset Formula $\tilde{\phi}$
+\end_inset
+
+ (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Model-equations-and"
+
+\end_inset
+
+ for details) of the L-PICOLA simulation up to an arbitrary constant.
+ The map was first generated with a HEALPix pixelization parameter 
+\begin_inset Formula $N_{side}=2^{9}$
+\end_inset
+
+, which corresponds to 
+\begin_inset Formula $3145728$
+\end_inset
+
+ pixels.
+ This is enough to plot all 
+\begin_inset Formula $N_{sample}^{3}=2097152$
+\end_inset
+
+ data points.
+ Then we use a HEALPy function 
+\family typewriter
+pixelfunc.ud_grade
+\family default
+ to degrade the resolution to 
+\begin_inset Formula $N_{side}=2^{6}$
+\end_inset
+
+, corresponding to 
+\begin_inset Formula $49152$
+\end_inset
+
+ pixels with a resolution of 
+\begin_inset Formula $\thicksim\unit[54.98]{arcmin}$
+\end_inset
+
+.
+ The blue color in the image represent regions of potential wells, i.e.
+ regions of high mass density.
+\end_layout
+
+\begin_layout Standard
+The bottom image of Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:healpix_lpicola"
+
+\end_inset
+
+ shows the same simulation box.
+ However, here we use the particle positions as input data for the pipeline
+ to generate this plot.
+ Besides the mapping procedure described in the last paragraph, this pipeline
+ consist of the following steps:
+\end_layout
+
+\begin_layout Enumerate
+We use the CIC method to interpolate the particle positions to the mesh,
+ thus getting the mass density 
+\begin_inset Formula $\tilde{\rho}_{i,j,k}\;\left(i,j,k=1,...,N_{mesh}\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+We solve Eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:poisson_dimless"
+
+\end_inset
+
+ in Fourier-space with a discretized Laplace operator, 
+\begin_inset Formula $\tilde{\nabla}^{2}\tilde{\phi}(\tilde{\mathbf{x}})\simeq\tilde{\phi}_{i+1,j,k}+\tilde{\phi}_{i-1,j,k}+\tilde{\phi}_{i,j+1,k}+\tilde{\phi}_{i,j-1,k}+\tilde{\phi}_{i,j,k+1}+\tilde{\phi}_{i,j,k-1}-6\tilde{\phi}_{i,j,k},$
+\end_inset
+
+ yielding for the transformed potential,
+\begin_inset Formula 
+\begin{equation}
+\tilde{\phi}_{i,j,k}(\mathbf{k})=\frac{3}{2}\frac{\Omega_{m,0}}{a}\frac{\tilde{\delta}_{i,j,k}(\mathbf{k})}{\omega^{i}+\omega^{-i}+\omega^{j}+\omega^{-j}+\omega^{k}+\omega^{-k}-6},\quad\omega\equiv e^{2\pi i/N_{mesh}}.\label{eq:fftsolved_pot}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+We transform 
+\begin_inset Formula $\tilde{\phi}_{i,j,k}(\mathbf{k})$
+\end_inset
+
+ back to real-space and use the inverse CIC interpolation to get the potential
+ at the particle positions.
+ 
+\end_layout
+
+\begin_layout Standard
+The above pipeline was implemented in Python using the FFT libraries from
+ NumPy.
+ The transformations were performed with 
+\begin_inset Formula $128$
+\end_inset
+
+ equidistant sample points in each dimension and the full complex Fourier
+ transform, which is appropriate for problems satisfying periodic boundary
+ conditions.
+ With this approach we want to prove that the potential computed with the
+ modified L-PICOLA is consistent with the particle distribution.
+ No difference can be found just by looking at the two maps.
+ We will provide a more detailed analysis in the next section.
+\end_layout
+
+\begin_layout Standard
+To check that we have not made an error in our calculations, we run the
+ same simulation box using the same parameters and cosmological model with
+ GADGET-2.
+ Although the seed for the particle positions was the same as in L-PICOLA,
+ major differences in the algorithmic calculation of the particle interactions
+ – splitting the potential into a long-range and short-range part – have
+ not allowed us to compare them 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{gadget}
+\end_layout
+
+\end_inset
+
+.
+ The results are shown in Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:healpix_gadget"
+
+\end_inset
+
+ using the same procedure as for L-PICOLA.
+\end_layout
+
+\begin_layout Section
+Analysis and verification
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Analysis-and-verification"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To compare the results presented in Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:healpix_lpicola"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:healpix_gadget"
+
+\end_inset
+
+, we calculate the spherical harmonic power spectrum using the HEALPy function
+ 
+\family typewriter
+sphtfunc.anafast
+\family default
+.
+ The spectrum is taken from 
+\begin_inset Formula $49152$
+\end_inset
+
+ pixels corresponding to a resolution of 
+\begin_inset Formula $\thicksim\unit[54.98]{arcmin}$
+\end_inset
+
+.
+ The results are plotted in Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:Power-spectrum."
+
+\end_inset
+
+.
+ Except for the monopole, we see a less than 
+\begin_inset Formula $\unit[10]{\%}$
+\end_inset
+
+ discrepancy – relative to 
+\emph on
+simulation
+\emph default
+ output – over all scales between the GADGET-2 outputs.
+ The reason for the anomaly in the monopole could be the overall error 
+\begin_inset Formula $\sim0.44$
+\end_inset
+
+ in 
+\begin_inset Formula $\tilde{\phi}$
+\end_inset
+
+ made by our Poisson solver described in the previous section.
+ The error is estimated from solving the Poisson equation, 
+\begin_inset Formula 
+\begin{equation}
+\nabla^{2}f(x,y,z)=2\left(2x^{2}+2y^{2}+2z^{2}-3\right)f(x,y,z),\quad f(x,y,z)\equiv e^{-\left(x^{2}+y^{2}+z^{2}\right)},\label{eq:err_eq}
+\end{equation}
+
+\end_inset
+
+ on an equidistant mesh with 
+\begin_inset Formula $128$
+\end_inset
+
+ samples in each dimension.
+ For L-PICOLA we get similar results.
+ However, due to higher gradients of the potential compared to GADGET-2,
+ the spectra differ more than 
+\begin_inset Formula $\unit[10]{\%}$
+\end_inset
+
+ – relative to 
+\emph on
+simulation
+\emph default
+ output – on scales 
+\begin_inset Formula $30\lesssim l\lesssim100$
+\end_inset
+
+ and there is also an excess in the monopole.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/ps_sim_vs_sol5 copy.png
+	lyxscale 50
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Spherical harmonic power spectrum of the gravitational potential from the
+ HEALPix maps in Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:healpix_lpicola"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:healpix_gadget"
+
+\end_inset
+
+ with an angular resolution of 
+\begin_inset Formula $\sim\unit[54.98]{arcmin}$
+\end_inset
+
+.
+ In the upper panel we compare the spectrum of 
+\begin_inset Formula $\tilde{\phi}$
+\end_inset
+
+ from the simulation output (
+\emph on
+simulation
+\emph default
+) to the result of Eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:fftsolved_pot"
+
+\end_inset
+
+ (
+\emph on
+poisson
+\emph default
+) for both L-PICOLA and GADGET-2.
+ In the lower panel we take the ratio of 
+\emph on
+simulation
+\emph default
+ and 
+\emph on
+poisson
+\emph default
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Power-spectrum."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The spectrum gives only a 2-dimensional analysis of the potential on the
+ unit sphere.
+ To investigate 
+\begin_inset Formula $\tilde{\phi}$
+\end_inset
+
+ also in 
+\begin_inset Formula $r$
+\end_inset
+
+-dimension, we divide the simulation box into 
+\begin_inset Formula $100$
+\end_inset
+
+ concentric shells around its centre, such that the outmost shell completely
+ covers the box.
+ We then take the average of 
+\begin_inset Formula $\tilde{\phi}$
+\end_inset
+
+ in each shell and plot it as a function of the radius of the shell's mid-layer.
+ These averages 
+\begin_inset Formula $\langle\tilde{\phi}\rangle_{shell}$
+\end_inset
+
+ from the simulation output (
+\emph on
+simulation
+\emph default
+) and the calculated potential by the Poisson solver (
+\emph on
+poisson
+\emph default
+) – as well as their ratio – are shown in Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:gpot_plot_shell"
+
+\end_inset
+
+ for both L-PICOLA and GADGET-2.
+ In the lower panel we see that the results from GADGET-2 agree within 
+\begin_inset Formula $\unit[5]{\%}$
+\end_inset
+
+ – relative to 
+\emph on
+simulation
+\emph default
+ output – for all radii.
+ The averages 
+\begin_inset Formula $\langle\tilde{\phi}\rangle_{shell}$
+\end_inset
+
+ from L-PICOLA vary within 
+\begin_inset Formula $\unit[10]{\%}$
+\end_inset
+
+ – relative to 
+\emph on
+simulation
+\emph default
+ output – for all radii.
+ By comparing this plot with the one in Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Power-spectrum."
+
+\end_inset
+
+, we notice that the potential wells from the Poisson solver are more distinctiv
+e than the wells from the simulation in case of L-PICOLA.
+ The opposite is true for the results of GADGET-2.
+ One explanation for this tendency could by that the solver performs better
+ on smooth scalar fields, as in the case of GADGET-2.
+ To investigate this hypothesis we suggest trying to use more sample points
+ for the FFT.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/averageshells_err copy.png
+	lyxscale 50
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gravitational potential averaged over concentric shells with the centre
+ of the simulation box as the origin and a shell thickness 
+\begin_inset Formula $\sim\unit[0.87]{Mpc\,a\,h^{-1}}$
+\end_inset
+
+.
+ In the upper panel we compare 
+\begin_inset Formula $\langle\tilde{\phi}\rangle_{shell}$
+\end_inset
+
+ from the simulation output (
+\emph on
+simulation
+\emph default
+) to the result of Eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:fftsolved_pot"
+
+\end_inset
+
+ (
+\emph on
+poisson
+\emph default
+) for both L-PICOLA and GADGET-2.
+ In the lower panel we take the ratio of 
+\emph on
+simulation
+\emph default
+ and 
+\emph on
+poisson
+\emph default
+.
+ The red and green area represent the largest error in solving Eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:fftsolved_pot"
+
+\end_inset
+
+ for GADGET-2 and L-PICOLA respectively.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:gpot_plot_shell"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Furthermore, we compare the probability distribution function (PDF) of the
+ potential from the simulation output (
+\emph on
+simulation
+\emph default
+) to the one from the Poisson solver (
+\emph on
+poisson
+\emph default
+) for both codes.
+ The results are shown in Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PDF_gpot"
+
+\end_inset
+
+.
+ The PDF's are plotted against 
+\begin_inset Formula $200$
+\end_inset
+
+ bins with size 
+\begin_inset Formula $19.25$
+\end_inset
+
+.
+ We find that the 
+\begin_inset Formula $\tilde{\phi}$
+\end_inset
+
+-values of the two outputs share a similar distribution for either simulation
+ code.
+ In Tab.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Sample-mean-"
+
+\end_inset
+
+ the sample means and standard deviations of 
+\begin_inset Formula $\tilde{\phi}$
+\end_inset
+
+ of the two outputs and simulation codes are presented.
+ In the lower panel of Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PDF_gpot"
+
+\end_inset
+
+ we compare the PDF's.
+ The weighted average of their relative difference – relative to PDF(
+\begin_inset Formula $\tilde{\phi}^{S}$
+\end_inset
+
+) – is less than 
+\begin_inset Formula $\unit[2.5]{\%}$
+\end_inset
+
+ and less than 
+\begin_inset Formula $\unit[5]{\%}$
+\end_inset
+
+, while the difference of the means relatively to the RMS of their standard
+ deviation is less than 
+\begin_inset Formula $\unit[2.9]{\%}$
+\end_inset
+
+ and less than 
+\begin_inset Formula $\unit[3.3]{\%}$
+\end_inset
+
+ for GADGET-2 and L-PICOLA respectively.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="5">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\tilde{\phi}_{GADGET-2}^{poisson}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\tilde{\phi}_{GADGET-2}^{simulation}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\tilde{\phi}_{L-PICOLA}^{poisson}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\tilde{\phi}_{L-PICOLA}^{simulation}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\langle f\rangle$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-58.31$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-63.30$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-216.09$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-203.91$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma_{f}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $151.15$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $153.87$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $434.73$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $415.28$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sample mean 
+\begin_inset Formula $\langle f\rangle$
+\end_inset
+
+ and standard deviation 
+\begin_inset Formula $\sigma_{f}$
+\end_inset
+
+ of the gravitational potential for the various outputs and simulation codes.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Sample-mean-"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/pdf copy2.png
+	lyxscale 50
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+PDF of the gravitational potential.
+ In the upper panel we compare the PDF
+\begin_inset Formula $\,(\tilde{\phi})$
+\end_inset
+
+ from the simulation output (
+\emph on
+simulation
+\emph default
+) to the result of Eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:fftsolved_pot"
+
+\end_inset
+
+ (
+\emph on
+poisson
+\emph default
+) for both L-PICOLA and GADGET-2.
+ The solid vertical lines pinpoint the sample means of the potentials 
+\begin_inset Formula $\langle\tilde{\phi}\rangle$
+\end_inset
+
+ and the half base-length of the colored rectangles the unbiased standard
+ deviation 
+\begin_inset Formula $\sigma_{\tilde{\phi}}$
+\end_inset
+
+ for the various outputs.
+ In the lower panel the difference of the PDF's of the results is shown.
+ The bin size is 
+\begin_inset Formula $19.25$
+\end_inset
+
+.
+ The y-axis of both plots is scaled to 
+\begin_inset Formula $10^{-3}$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:PDF_gpot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusion
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Conclusion"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this paper we introduced a modification of L-PICOLA to output the peculiar
+ gravitational potential at the particle positions and on an equidistant
+ mesh.
+ This could be useful for future constructions of all-sky lensing-potential
+ and deflection-angle maps.
+ Also, to help 
+\begin_inset Formula $N$
+\end_inset
+
+-body simulations to directly simulate the CMB distortions caused by weak
+ lensing much faster and thus provide enough simulation samples to increase
+ the statistical significance of cosmological CMB surveys.
+ We run this modified version on 
+\begin_inset Formula $\left(\unit[100\,h^{-1}]{Mpc\,a}\right)^{3}$
+\end_inset
+
+ volume of space with 
+\begin_inset Formula $2097152$
+\end_inset
+
+ dark matter particles.
+ The same simulation was also done using GADGET-2.
+ We then looked at a single snapshot output at 
+\begin_inset Formula $z=0$
+\end_inset
+
+ to investigate the gravitational potential at the particle positions.
+ This result then also induces the correctness of the potential on the mesh,
+ as they merely differ by a Cloud-in-Cell interpolation method.
+ To prove that our modifications are correct, we solved the Poisson equation
+ of the potential using the mass overdensity field from the particle positions
+ of the simulation output.
+ The GADGET-2 simulation was used to show that we did not make any systematical
+ error in the Poisson solver implemented in Python.
+ With the analysis of the spherical harmonic power spectrum from the HEALPix
+ maps of the potential we found an agreement 
+\begin_inset Formula $C_{l,poisson}^{L-PICOLA}/C_{l,simulation}^{L-PICOLA}<\unit[10]{\%}$
+\end_inset
+
+ on scales 
+\begin_inset Formula $l\lesssim30$
+\end_inset
+
+ and 
+\begin_inset Formula $l\gtrsim100$
+\end_inset
+
+.
+ The discrepancy around 
+\begin_inset Formula $\sim\unit[15]{\%}$
+\end_inset
+
+ for 
+\begin_inset Formula $30\lesssim l\lesssim100$
+\end_inset
+
+ is due to the small sampling of the FFT in the Poisson solver and the bump
+ of the monopole 
+\begin_inset Formula $l=0$
+\end_inset
+
+ are caused by an error of 
+\begin_inset Formula $\sim0.44$
+\end_inset
+
+ in the potential made by the solver as well.
+ Furthermore, to complement the analysis in all 3 dimensions, we computed
+ the average of the potential over a concentric shell from the centre of
+ the simulation box as a function of its radius.
+ The potential varied within 
+\begin_inset Formula $\unit[10]{\%}$
+\end_inset
+
+ relative to the simulation output in all shells.
+ Lastly, we took the 1-point distribution (PDF) of the potential.
+ The difference of the means relatively to the RMS of their standard deviation
+ is less than 
+\begin_inset Formula $\unit[2.9]{\%}$
+\end_inset
+
+ and less than 
+\begin_inset Formula $\unit[3.3]{\%}$
+\end_inset
+
+ for GADGET-2 and L-PICOLA respectively.
+ The distributions show that the weighted average of the relative difference
+ between the PDF – relative to PDF(
+\begin_inset Formula $\tilde{\phi}^{S}$
+\end_inset
+
+) – of the simulation output and the PDF of the calculated potential from
+ the Poisson solver is less than 
+\begin_inset Formula $\unit[2.5]{\%}$
+\end_inset
+
+ and less than 
+\begin_inset Formula $\unit[5]{\%}$
+\end_inset
+
+ for GADGET-2 and L-PICOLA respectively.
+ Thus we conclude that our modified version of L-PICOLA is able to produce
+ a gravitational potential field, as well as to sample the potential at
+ the position of the particles.
+ A further improvement of L-PICOLA would be to transfer our pipeline to
+ generate a simulation with the potential in lightcone mode.
+\end_layout
+
+\begin_layout Section*
+Acknowledgments
+\end_layout
+
+\begin_layout Standard
+We would like to thank Uwe Schmitt for his help with the computing implementatio
+n.
+ This research made use of MUSIC
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+To generate initial conditions for GADGET-2.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{music}
+\end_layout
+
+\end_inset
+
+, IPython, Jupyter notebook, NumPy, SciPy, Matplotlib, Healpy, Pynbody.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{thebibliography}{99}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{gadget} Springel V., {
+\backslash
+it The Cosmological Simulation Code GADGET-2, MNRAS} 
+\backslash
+textbf{364} (2005) 1105-1134.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{lpicola} Howlett C., Manera M.
+ 
+\backslash
+& Percival W.J., {
+\backslash
+it L-PICOLA: A Parallel Code for Fast Dark Matter Simulation}, arXiv:1506.03737.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{cola} Tassev S., Zaldarriaga M.
+ 
+\backslash
+& Eisenstein D., {
+\backslash
+it Solving Large Scale Structure in Ten Easy Steps with COLA, JCAP} 
+\backslash
+textbf{06} (2013) 036.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{2lpt} Scoccimarro R., Hui L., Manera M.
+ 
+\backslash
+& Chan K.C., {
+\backslash
+it Large-scale Bias and Efficient Generation of Initial Conditions for Nonlocal
+ Primordial non-Gaussianity, Phys.
+ Rev.
+ D} 
+\backslash
+textbf{85} (2012) 083002, arXiv:1108.5512.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{ufalcon} Sgier R.J., Réfrégier A., Amara A.
+ 
+\backslash
+& Nicola A., {
+\backslash
+it Fast Generation of Covariance Matrices for Weak Lensing}, arXiv:1801.05745v1
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{bao} Seo H.-J., Eisenstein D.J., {
+\backslash
+it Probing Dark Energy with Baryonic Acoustic Oscillations from Future Large
+ Galaxy Redshift Surveys ,ApJ} 
+\backslash
+textbf{598} (2003) 720
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{rsd} Kaiser N., {
+\backslash
+it Clustering in real space and in redshift space, MNRAS} 
+\backslash
+textbf{227} (1987) 1
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{pm_org} Hockney R.W.
+ 
+\backslash
+& Eastwood J.W., {
+\backslash
+it Computer Simulation using Particles}, (1988)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{pm_imp} Klypin A.A.
+ 
+\backslash
+& Holtzmann S.F., {
+\backslash
+it Particle-Mesh Code for Cosmological Simulations}, arXiv:astro-ph/9712217.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{healpix} Gorski K.M., {
+\backslash
+it HEALPix: A Framework for High-Resolution Discretization and Fast Analysis
+ of Data Distributed on the Sphere, Astrophys.
+ J.} 
+\backslash
+textbf{622} (2005) 759.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{music} O.
+ Hahn and T.
+ Abel, {
+\backslash
+it Multi-scale initial conditions for cosmological simulations, MNRAS} 
+\backslash
+textbf{415} (2011) 2101-2121
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{thebibliography}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

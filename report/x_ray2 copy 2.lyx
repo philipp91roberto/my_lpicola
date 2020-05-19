@@ -1,0 +1,5048 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{xcolor}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 3cm
+\rightmargin 2cm
+\bottommargin 4cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+X-Ray Diffraction
+\end_layout
+
+\begin_layout Author
+Philipp Miotti
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+{
+\backslash
+it Advanced Physics Lab (VP), Departement of Physics, ETH Z
+\backslash
+"urich}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abstract}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+X-ray powder diffraction is a fast and simple technique to analyze materials
+ on their crystal structure and chemical composition.
+ This experiment applies the Debye-Scherrer method to determine crystal
+ structure and lattice parameter of table salt NaCl and Aluminum Al in powdered
+ form.
+ X-rays, generated in a X-ray tube are directed at the sample, and the diffracte
+d rays are collected with a movable detector.
+ The results are useful for any experiments, where the crystallographic
+ properties of NaCl or Al are needed; e.g.
+ angle-resolved photoemission spectroscopy to determine the electronic band
+ structure.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abstract}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+X-rays 
+\emph default
+are ideal to analyze the molecular structure of various materials.
+ This is important for symmetry considerations of crystals, like determining
+ the 
+\emph on
+Brillouin zones
+\emph default
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{brillouin}
+\end_layout
+
+\end_inset
+
+ or the 
+\emph on
+electronic band structure 
+\emph default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{band}
+\end_layout
+
+\end_inset
+
+
+\emph on
+.
+
+\emph default
+ Knowing the crystal structure (lattice type, lattice parameter, etc.) is
+ necessary to derive physical properties of highly symmetric materials;
+ e.g.
+ thermal and electrical conductivity of semiconductors, melting point of
+ metals, and many more.
+ This knowledge can be used to built special types of conductors and semiconduct
+ors, thermal isolators and even microchips 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{chip}
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The aim of this paper is to outline the experimental determination of two
+ inorganic materials with the 
+\emph on
+powder diffractometry 
+\emph default
+technique using X-rays as interacting waves.
+ There are in principle two most common methods used to determine the lattice
+ type and parameter of a crystal.
+ The 
+\emph on
+rotating crystal method 
+\emph default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{diffraction}
+\end_layout
+
+\end_inset
+
+
+\emph on
+ 
+\emph default
+uses samples of a macroscopic crystal, which is rotated with respect a detector
+ in such a way that reflections are observed.
+ In this experiment we are making use of the 
+\emph on
+Debye-Scherrer method
+\emph default
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{diffraction}
+\end_layout
+
+\end_inset
+
+, which is a powder diffractometry technique.
+ The material has to be in powder form, but is very convenient as the crystal's
+ diffraction pattern does not change while the sample is rotating.
+
+\emph on
+ 
+\emph default
+These diffractions occur only on specific planes, if the incident ray is
+ at an certain angle with respect to the plane.
+ Each of these planes can be labeled by the so-called 
+\emph on
+Miller indices
+\emph default
+ 
+\begin_inset Formula $(hkl)$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{miller}
+\end_layout
+
+\end_inset
+
+.
+ These angles 
+\begin_inset Formula $\theta_{hkl}$
+\end_inset
+
+ can be calculated assuming cubic-lattice-structure on plugging the following
+ equation for the distance 
+\begin_inset Formula $d_{hkl}$
+\end_inset
+
+ between the 
+\begin_inset Formula $(hkl)$
+\end_inset
+
+-planes 
+\begin_inset Formula 
+\begin{equation}
+d_{hkl}=\frac{a}{\sqrt{h^{2}+k^{2}+l^{2}}}\,,\label{eq:dhl}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $a$
+\end_inset
+
+ is the lattice parameter, into equation 
+\begin_inset Formula 
+\begin{equation}
+\theta_{hkl}=\arcsin(\frac{\lambda}{2\,d_{hkl}})\,,\label{eq:thetahkl}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is the wavelength of radiation.
+ The intensity of reflections 
+\begin_inset Formula $hkl$
+\end_inset
+
+ are proportional to the 
+\emph on
+structure factor 
+\begin_inset Formula 
+\begin{equation}
+S_{hkl}=\sum_{\alpha}f_{\alpha}\exp(i\,\vec{K}_{hkl}\cdot\vec{r}_{\alpha})\,,\label{eq:structure}
+\end{equation}
+
+\end_inset
+
+ 
+\emph default
+where 
+\begin_inset Formula $f_{\alpha}$
+\end_inset
+
+ is the 
+\emph on
+atomic form factor
+\emph default
+.
+ Eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:dhl"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:thetahkl"
+
+\end_inset
+
+ are mostly responsible for the geometrical properties (independent of material
+ composition), whereas 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:structure"
+
+\end_inset
+
+ determines the basis of unit cells.
+ More theory on diffraction can be found in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{fkp}
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Samples and measurement setup
+\end_layout
+
+\begin_layout Standard
+To correctly understand the results, we need to begin with the frame of
+ the picture.
+ Understanding the circumstances under which the data were collect plays
+ a central role for this experiment.
+ The following section is dedicated to this point.
+\end_layout
+
+\begin_layout Standard
+Interatomic distance in materials are of order 
+\begin_inset Formula $\unit[1-10]{\mathring{A}}$
+\end_inset
+
+.
+ To investigate such tiny scales with high accuracy, electromagnetic waves
+ of wavelengths in the same order of magnitude are essential.
+ Such high energetic waves are called 
+\emph on
+X-rays
+\emph default
+, which are far beyond the visible spectrum.
+\end_layout
+
+\begin_layout Standard
+In our experiment we used the most common source of X-rays: an 
+\emph on
+X-ray tube
+\emph default
+ (device: Philips PW 1729; detailed information on functionality and design
+ can be obtained from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{xray}
+\end_layout
+
+\end_inset
+
+ or 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{xraywiki}
+\end_layout
+
+\end_inset
+
+).
+ In order to make a precise statement on Bragg-reflections 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{fkp}
+\end_layout
+
+\end_inset
+
+ in the diffraction spectrum of a material, we needed rays coming out of
+ the tube at a precisely specified wavelength.
+ The tube we used was emitting 
+\begin_inset Formula $K_{\alpha}$
+\end_inset
+
+ and 
+\begin_inset Formula $K_{\beta}$
+\end_inset
+
+ spectral lines of copper.
+ Thus, after placing a nickel filter in the ray-pathway before the sample,
+ we got a 
+\emph on
+monochromatic source
+\emph default
+ with frequency of the 
+\begin_inset Formula $K_{\alpha}$
+\end_inset
+
+ line.
+ In our setup we operated the tube with an acceleration voltage of 
+\begin_inset Formula $\unit[30]{kV}$
+\end_inset
+
+ and a current of 
+\begin_inset Formula $\unit[30]{mA}$
+\end_inset
+
+.
+ Altogether yield X-rays of wavelength 
+\begin_inset Formula $\lambda=\unit[1.5406]{\mathring{A}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The technique we used in our experiment is called 
+\emph on
+powder diffractometry 
+\emph default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{diffraction}
+\end_layout
+
+\end_inset
+
+
+\emph on
+.
+ 
+\emph default
+The X-ray source remains fixed as the detector moves in a circle around
+ the sample placed in the center of the rotational plane.
+ While the detector is revolving, measuring the intensity of the diffracted
+ X-ray, the sample also rotates about its axis.
+ A sketch of the setup is shown in Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Powder-diffractometry"
+
+\end_inset
+
+.
+ We used samples in powder form (contains a huge amount of microscopic grains
+ with properties of a large crystal) leaving the diffraction pattern unaltered,
+ and simultaneously averaging over all possible sample orientations due
+ to the sample's rotation.
+ So, only the detector was moving, scanning the diffraction pattern.
+ This method is called 
+\emph on
+Debye-Scherrer method
+\emph default
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{diffraction}
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Screen Shot 2016-11-05 at 11.35.25.png
+	scale 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Powder diffractometry.
+ The X-ray source is fixed while sample and detector are rotating around
+ a common axis.
+ The measured intensity is the plotted against the angle of revolution 
+\begin_inset Formula $2\,\theta$
+\end_inset
+
+.
+ Image source:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\backslash
+cite{xray}
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Powder-diffractometry"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Before we started with the measurements, we have had to ensure that the
+ X-ray analysis device was adjusted properly.
+ This calibration was achieved by comparing the measured angles of reflections
+ with the expected ones of a precisely sized material.
+ Due to high purity and a well known lattice parameter 
+\begin_inset Formula $a_{\textrm{Si}}=\unit[5.43088]{\mathring{A}}$
+\end_inset
+
+ we used Silicon.
+ The results are found in Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Calibration"
+
+\end_inset
+
+ and Tab.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:calibration"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/calibSi.png
+	scale 90
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Visible reflexions of Si by 
+\begin_inset Formula $\textrm{Cu}_{K\alpha}$
+\end_inset
+
+ emission line with 
+\begin_inset Formula $\lambda=\unit[1.5406]{\mathring{A}}$
+\end_inset
+
+.
+ The blue peaks in the intensity indicate a reflexion on a particular plane;
+ e.g.
+ the second to 
+\begin_inset Formula $(220)$
+\end_inset
+
+.
+ The red lines are placeholders for the expected reflexion angles 
+\begin_inset Formula $2\,\theta_{theory}$
+\end_inset
+
+.
+ A small offset of 
+\begin_inset Formula $\approx0.25\text{°}$
+\end_inset
+
+ to the right was observed due to small misalignment in the geometric arrangemen
+t of the X-ray device.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Calibration"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="7">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(2\,\theta)\text{°}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta(2\,\theta)\text{°}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta(Q)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $[(1^{2}+1^{2}+1^{2})\,Q]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $hkl$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(2\,\theta_{theory})\text{°}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $28.69$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.05$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.000$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.004$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $111$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $28.44$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $47.55$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.04$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.648$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.009$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $220$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $47.30$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $56.37$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.05$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3.63$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.01$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $11$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $311$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $56.12$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $69.39$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.04$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5.28$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.02$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $400$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $69.13$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $76.61$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.07$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $6.26$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.02$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $19$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $331$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $76.38$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $88.27$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.07$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $7.90$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.03$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $24$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $422$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $88.03$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $95.19$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.06$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $8.88$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.03$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $27$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $511,333$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $94.95$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Collected data of the Si.
+ The measured angles 
+\begin_inset Formula $2\,\theta$
+\end_inset
+
+ were compared with the theoretical ones 
+\begin_inset Formula $2\,\theta_{theory}$
+\end_inset
+
+ inferred from the well known lattice parameter 
+\begin_inset Formula $a_{\textrm{Si}}=\unit[5.43088]{\mathring{A}}$
+\end_inset
+
+ and Miller indices 
+\begin_inset Formula $hkl$
+\end_inset
+
+.
+ This yields the necessary correction for 
+\begin_inset Formula $2\,\theta$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:calibration"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+The blue curve in the plot is the diffraction spectrum of Si.
+ For a single-atomic material the structure constant 
+\begin_inset Formula $S_{hkl}$
+\end_inset
+
+ (see eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:structure"
+
+\end_inset
+
+) can be either zero or positive, and only additive in 
+\begin_inset Formula $f_{\alpha}$
+\end_inset
+
+ as the there is only one element in the unit cell of the crystal structure.
+ Hence, we should see repeatedly diffractions of similar intensity.
+ Instead, it has a declining tendency over the whole range.
+ This is due to inelastic collisions, whereas the structure factor is derived
+ assuming only elastic processes.
+ Taking into account the intensities play a key role in the investigation
+ of the material's 
+\begin_inset Quotes eld
+\end_inset
+
+physical content
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Whereas, the reflections merely give a clue on the shape and size of a
+ crystal.
+ This fact is also going to be employed to determine the samples of our
+ experiment.
+\end_layout
+
+\begin_layout Standard
+The red dots represent the angels 
+\begin_inset Formula $2\,\theta_{theory}$
+\end_inset
+
+ calculated on applying 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:thetahkl"
+
+\end_inset
+
+ after the 
+\begin_inset Formula $hkl$
+\end_inset
+
+ values were determined from the measured data.
+ The device-offset was found to be 
+\begin_inset Formula $(0.25\pm0.01)$
+\end_inset
+
+°.
+ Thus, all 
+\begin_inset Formula $\theta_{hkl}$
+\end_inset
+
+ appear to the left of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ by this amount.
+ More details regarding the search for the indices will be given in the
+ following sections.
+\end_layout
+
+\begin_layout Standard
+After taking all this precautionary measures, we could finally begin characteriz
+ing the materials.
+ We chose two substances already in powdered form, fixed them on a sample
+ holder with sticky tape and put them one by one in the sample stage of
+ the X-ray device.
+ Lastly, editing the measurement parameters in the 
+\emph on
+XRD Application Programs 
+\emph default
+(see 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{xrd}
+\end_layout
+
+\end_inset
+
+) on the computer linked with the device and starting the data collection
+ program 
+\emph on
+APD 
+\emph default
+(see 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{apd}
+\end_layout
+
+\end_inset
+
+) yielded the results to be presented in the next section.
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Standard
+In this section we present the collected data and results of our measurements
+ on both samples.
+ First, the measured values will be graphically displayed; i.e.
+ the diffraction spectrum.
+ Then, we describe the process of extracting the main information from these
+ plots, as well as the derivation of the Miller indices 
+\begin_inset Formula $hkl$
+\end_inset
+
+ of the intensity maxima.
+ In the last step, the lattice constant 
+\begin_inset Formula $a$
+\end_inset
+
+ is deduced.
+\end_layout
+
+\begin_layout Standard
+In Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sample1"
+
+\end_inset
+
+ we can see the diffraction spectrum of a particular material.
+ Lets call it 
+\emph on
+Sample 1
+\emph default
+.
+ Similar to the spectrum of Silicon, the peaks (visible diffractions) tend
+ to decrease as we move with the detector towards greater angles.
+ This has to do something with inelastic diffraction, as it was pointed
+ out in the previous section.
+ However, if we look closely at the 
+\begin_inset Formula $30\text{°}$
+\end_inset
+
+ mark, we spot a small pinnacle.
+ (This is a strong indication of a basis with more than one element, where
+ 
+\begin_inset Formula $f_{\alpha}>f_{\beta}$
+\end_inset
+
+ or vis versa in the structure factor 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:structure"
+
+\end_inset
+
+ for different atoms 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta$
+\end_inset
+
+.) Noticing this is essential to figure out the structure and composition
+ of Sample 1.
+ Tab.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:sample1-1"
+
+\end_inset
+
+ presents all the necessary values to determine the visible 
+\begin_inset Formula $hkl$
+\end_inset
+
+.
+ The values 
+\begin_inset Formula $Q$
+\end_inset
+
+ are the quotients 
+\begin_inset Formula 
+\begin{equation}
+Q_{i}=\frac{\sin^{2}\theta_{i}}{\sin^{2}\theta_{1}}=\frac{h_{i}^{2}+k_{i}^{2}+l_{i}^{2}}{h_{1}^{2}+k_{1}^{2}+l_{1}^{2}}\,,\label{eq:quotient}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\theta_{i}$
+\end_inset
+
+ are the measured angles 
+\begin_inset Formula $\theta$
+\end_inset
+
+ in Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sample1"
+
+\end_inset
+
+ associated to the yet unknown 
+\begin_inset Formula $h_{i}k_{i}l_{i}\,$
+\end_inset
+
+, and 
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+ is the fist visible angle 
+\begin_inset Formula $\theta$
+\end_inset
+
+ in the same plot corresponding to some 
+\begin_inset Formula $h_{1}k_{1}l_{1}$
+\end_inset
+
+ depending on the proposed lattice.
+ Additionally, with 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:quotient"
+
+\end_inset
+
+ we made the assumption of having a cubic lattice (derivation found in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{xray}
+\end_layout
+
+\end_inset
+
+, Section 3.5).
+ Starting with the lowest 
+\begin_inset Formula $hkl$
+\end_inset
+
+ of each lattice type; i.e.
+ simple cubic (sc), body-centered cubic (bcc), face-centered cubic (fcc)
+ or diamond lattice, we got a list of values similar to those in 5th column
+ of Tab.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:sample1-1"
+
+\end_inset
+
+.
+ From the appearance and not-appearance of certain 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+, we inferred the lattice and indices of the reflexions by consulting Tab.
+ A.1 in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{xray}
+\end_layout
+
+\end_inset
+
+.
+ Noticeable is also the fact, that only indices of even integers appear,
+ except for the first one.
+ After we found the lattice structure to be 
+\emph on
+fcc-lattice
+\emph default
+, the final step towards characterization was done by computing the lattice
+ parameter 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ A value 
+\begin_inset Formula $a$
+\end_inset
+
+ was found for each 
+\begin_inset Formula $hkl$
+\end_inset
+
+, indeed.
+ Substituting for 
+\begin_inset Formula $d_{hkl}$
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:thetahkl"
+
+\end_inset
+
+ from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:dhl"
+
+\end_inset
+
+, we get 
+\begin_inset Formula 
+\begin{equation}
+a=\frac{\lambda\,\sqrt{h^{2}+k^{2}+l^{2}}}{2\,\sin(\theta_{hkl})}\,.\label{eq:latticeparameter}
+\end{equation}
+
+\end_inset
+
+The values for every 
+\begin_inset Formula $hkl$
+\end_inset
+
+ are found in Tab.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:sample_a1-1"
+
+\end_inset
+
+ with their uncertainties in the 2nd column.
+ From all these values their mean was calculated reading 
+\begin_inset Formula $\overline{a}=\unit[(5.647\pm0.004)]{\mathring{A}}$
+\end_inset
+
+.
+ Editing these results into the database 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{database}
+\end_layout
+
+\end_inset
+
+ we found our Sample 1 being NaCl.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/nacl_whole.png
+	scale 90
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+This plot shows the diffraction lines of Sample 1.
+ The blue curve is the measured X-ray-diffraction spectrum.
+ The red horizontal lines are the angles 
+\begin_inset Formula $2\,\theta_{hkl}\,$
+\end_inset
+
+.
+ Noticeable are the small peaks for almost vivid diffractions.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sample1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="6">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(2\,\theta)\text{°}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta(2\,\theta)\text{°}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta(Q)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $[(1^{2}+1^{2}+1^{2})\,Q]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $hkl$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $27.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.00$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.02$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $111$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $31.9$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.34$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.02$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $200$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $45.6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.68$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.04$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $220$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $56.6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4.02$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.05$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $12$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $222$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $66.4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5.37$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.06$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $400$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $75.4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $6.70$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.08$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $20$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $420$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $84.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $8.05$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.09$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $24$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $422$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Collected data describing Sample 1.
+ The quotients 
+\begin_inset Formula $Q$
+\end_inset
+
+ are calculated from the measured angles 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ On putting forward a suggested 
+\begin_inset Formula $h_{1}k_{1}l_{1}$
+\end_inset
+
+ for the first diffraction-angle 
+\begin_inset Formula $2\,\theta$
+\end_inset
+
+ and comparing 
+\begin_inset Formula $h_{i}^{2}+k_{i}^{2}+l_{i}^{2}$
+\end_inset
+
+ with table values from Tab.
+ A.1 in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{xray}
+\end_layout
+
+\end_inset
+
+ renders the crystal lattice structure.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:sample1-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="5">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $hkl$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[a]{[\unit{\mathring{A}}]}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta a[\mathring{\unit{A}}]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{a}[\mathring{\unit{A}}]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma_{a}[\mathring{\unit{A}}]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $220$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5.648$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.09$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5.647$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.004$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $222$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5.652$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.06$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $400$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5.643$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.06$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $420$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5.647$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.09$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $422$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5.644$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.08$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Crystal structure parameters 
+\begin_inset Formula $a$
+\end_inset
+
+ of Sample 1.
+ Each 
+\begin_inset Formula $hkl$
+\end_inset
+
+ with the associated angle 
+\begin_inset Formula $\theta_{hkl}$
+\end_inset
+
+ can be used to determine 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ The mean value 
+\begin_inset Formula $\bar{a}$
+\end_inset
+
+ was found to be 
+\begin_inset Formula $(\unit[5.647\pm0.004)]{\mathring{A}}$
+\end_inset
+
+.
+ Matching with values of database 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{database}
+\end_layout
+
+\end_inset
+
+ yield the chemical composition of to be NaCl.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:sample_a1-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Experimental data and results of Sample 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sample-2"
+
+\end_inset
+
+ the spectrum of an another material is shown.
+ Lets call this 
+\emph on
+Sample 2
+\emph default
+.
+ Compared to the previous plot, the local maxima of intensities decrease
+ gradually and no prior small peak is observed.
+ Thus, sample 2 is probably a material consisting of only one element.
+ As for Sample 1, Tab.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:sample2-1"
+
+\end_inset
+
+ consists of all required information in order to infer the lattice type.
+ Compared to indices of Sample 1, we also found some 
+\begin_inset Formula $(hkl)$
+\end_inset
+
+'s with odd integers.
+ Here, we found an 
+\emph on
+fcc-lattice
+\emph default
+, as well.
+ What remains then is to calculate the lattice parameter.
+ As for Sample 1 we calculated 
+\begin_inset Formula $a$
+\end_inset
+
+ for several index-angle pairs (see Tab.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:sample_a2-1"
+
+\end_inset
+
+) on applying eq.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:latticeparameter"
+
+\end_inset
+
+.
+ Similarly as for Sample 1, we found for Sample 2 a mean value 
+\begin_inset Formula $\overline{a}=\unit[(4.055\pm0.006)]{\mathring{A}}$
+\end_inset
+
+.
+ Matching these results with the database 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{database}
+\end_layout
+
+\end_inset
+
+ we found our Sample 2 being Aluminum Al.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/sample_whole.png
+	scale 90
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+This plot shows the diffraction lines of Sample 2.
+ The purple curve is the measured X-ray-diffraction spectrum.
+ The red horizontal lines indicate the angles 
+\begin_inset Formula $\theta_{hkl}\,$
+\end_inset
+
+.
+ In comparison with the first spectrum, the diffractions are much stronger.
+ This is due to the crystal composition; i.e.
+ basis of unit cell.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sample-2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="6">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(2\,\theta)\text{°}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta(2\,\theta)\text{°}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta(Q)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $[(1^{2}+1^{2}+1^{2})\,Q]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $hkl$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $38.6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.00$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.02$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $111$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $44.8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.13$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.02$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $200$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $65.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.68$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.04$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $220$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $78.3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3.68$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.05$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $11$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $311$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $82.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4.02$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.06$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $12$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $222$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $99.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5.37$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.07$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $400$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $112.3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $6.39$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.09$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $19$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $331$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $116.9$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $6.72$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.09$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $20$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $420$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Collected data of Sample 2.
+ Comparing with Sample 1 it is easy to see, that 
+\begin_inset Formula $(hkl)$
+\end_inset
+
+'s with odd numbers appear more often.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:sample2-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="5">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $hkl$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $a\unit{[\mathring{A}]}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta a\unit{[\mathring{A}]}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{a}\unit{[\mathring{A}]}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma_{a}\unit{[\mathring{A}]}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $311$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4.058$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.05$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4.055$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.006$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $222$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4.057$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.04$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $400$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4.053$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.05$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $331$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4.050$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.05$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $420$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4.049$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.04$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Crystal structure parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ of Sample 2.
+ The mean value 
+\begin_inset Formula $\bar{a}$
+\end_inset
+
+ is 
+\begin_inset Formula $(\unit[4.055\pm0.006)]{\mathring{A}}$
+\end_inset
+
+.
+ Comparing this with those found in the literature (see 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{alu}
+\end_layout
+
+\end_inset
+
+ downloaded from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{database}
+\end_layout
+
+\end_inset
+
+) , we conclude Sample 2 to be a Aluminum powder.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:sample_a2-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Experimental data and results of Sample 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Analysis and Discussion
+\end_layout
+
+\begin_layout Standard
+It should be clear by now how the data has to be understood.
+ Here, we give a more comprehensive interpretation.
+ Central aspects of data analysis are going to be mentioned as well.
+\end_layout
+
+\begin_layout Standard
+First, we owe an explanation on the device-offset.
+ Both angles 
+\begin_inset Formula $\theta$
+\end_inset
+
+ measured, and 
+\begin_inset Formula $\theta_{theory}$
+\end_inset
+
+ obtained from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:dhl"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:thetahkl"
+
+\end_inset
+
+, were fitted with a linear function using the 
+\emph on
+LinearModelFit 
+\emph default
+routine in 
+\emph on
+\noun on
+Wolfram
+\noun default
+Mathematica
+\emph default
+.
+ Errors appearing as weights in the fit were simply approximated to be the
+ half of FWHM at each peak (see next paragraph).
+ Thus, the transformation from measured 
+\begin_inset Formula $2\,\theta$
+\end_inset
+
+ to true value 
+\begin_inset Formula $2\,\theta_{hkl}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+2\,\theta_{hkl}=2\,\theta-(0.25\pm0.01)\text{°}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We now want to demonstrate how we approximated the errors from the plots
+ on an real example from our data.
+ In Fig.
+\begin_inset Formula $\,$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Demonstration-on-approximating"
+
+\end_inset
+
+ you can see a measured peak of intensity.
+ To the maximum value 
+\begin_inset Formula $y$
+\end_inset
+
+ (
+\begin_inset Formula $y\approx310$
+\end_inset
+
+ in this plot) represented by the green line was associated to a real Bragg-refl
+exion 
+\begin_inset Formula $hkl$
+\end_inset
+
+.
+ The black dashed horizontal line marks 
+\begin_inset Formula $y/2$
+\end_inset
+
+.
+ The two black dashed vertical lines are placed at angles 
+\begin_inset Formula $2\,\theta^{-}$
+\end_inset
+
+ and 
+\begin_inset Formula $2\,\theta^{+}$
+\end_inset
+
+ for the left and right line respectively.
+ Each goes through the intersection of the 
+\begin_inset Formula $y/2$
+\end_inset
+
+ line and the measured diffraction curve in blue.
+ The value 
+\begin_inset Formula $(2\,\theta^{+}-2\,\theta^{-})/2$
+\end_inset
+
+ yield then an error for the measured value 
+\begin_inset Formula $2\,\theta$
+\end_inset
+
+.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/nacl_p2.png
+	scale 90
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Demonstration on approximating the error of 
+\begin_inset Formula $2\,\theta$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Demonstration-on-approximating"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The errors for 
+\begin_inset Formula $2\,\theta$
+\end_inset
+
+ of both samples were approximated in exactly the way as for Si.
+ The values are presented in the 2nd column of Tab.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:sample1-1"
+
+\end_inset
+
+ & 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:sample2-1"
+
+\end_inset
+
+ of Sample 1 & Sample 2 respectively.
+ Then, the uncertainties for 
+\begin_inset Formula $Q$
+\end_inset
+
+ were determined with 
+\emph on
+Gauss's error propagation rule 
+\emph default
+after proposing the specific crystal structure.
+ The obtained values in the 5th column are already rounded to the next integer
+ value.
+ After matching these 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+ with those in Tab.
+ A.1 of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{xray}
+\end_layout
+
+\end_inset
+
+, we have found for both Sample 1 and Sample 2 a fcc lattice.
+ Knowing this the geometric aspects of each sample's unit cell were fully
+ determined after plugging the result into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:latticeparameter"
+
+\end_inset
+
+.
+ However, on applying this equation for each index-angle pair, the error
+ in 
+\begin_inset Formula $a$
+\end_inset
+
+ is getting bigger for smaller 
+\begin_inset Formula $\theta_{hkl}$
+\end_inset
+
+ (because of 
+\begin_inset Formula $\sin(\theta_{hkl})$
+\end_inset
+
+).
+ Thus, only the bigger angles were taken into account to compute 
+\begin_inset Formula $\overline{a}$
+\end_inset
+
+ on making use of the weighted mean algorithm 
+\emph on
+WeightedData
+\emph default
+ of 
+\emph on
+\noun on
+Wolfram
+\noun default
+Mathematica.
+\end_layout
+
+\begin_layout Standard
+Finally, the appeared 
+\begin_inset Formula $hkl$
+\end_inset
+
+ reflexions give hints to the composition of the basis.
+ For Sample 1 we related the first reflexion (which was barely detectable)
+ to purely odd indices telling us that the basis has to consist of at least
+ two elements.
+ Therefore, we took this fact into account when searching for a matching
+ material.
+ After it came out Sample being NaCl (
+\begin_inset Formula $\unit[a=5.6402(80)]{\mathring{A}}$
+\end_inset
+
+ in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{nacl}
+\end_layout
+
+\end_inset
+
+), it was clear why we had not observed 
+\begin_inset Formula $hkl$
+\end_inset
+
+ of odd integers.
+ Analyzing Sample 2 was much easier.
+ We quickly came to the result that Sample 2 has to be Aluminum (
+\begin_inset Formula $\unit[a=4.0497(80)]{\mathring{A}}$
+\end_inset
+
+ in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{alu}
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+In this experiment we conducted 
+\emph on
+X-ray diffraction analysis
+\emph default
+ on two materials in powder form.
+ The goal was to determine their chemical composition.
+ This was achieved by the 
+\emph on
+Debye-Scherrer method.
+\end_layout
+
+\begin_layout Standard
+First, we used a Silicon sample to calibrate our X-ray device.
+ The offset 
+\begin_inset Formula $\textrm{\emph{measured angle - true angle}}$
+\end_inset
+
+ came to be 
+\begin_inset Formula $(0.25\pm0.01)$
+\end_inset
+
+°.
+ Afterwards, the diffraction spectrum of each sample was measured.
+ The appropriate 
+\begin_inset Formula $hkl$
+\end_inset
+
+ reflections were inferred from the relations between the relative position
+ of the observed peaks.
+ Proposing several lattice types and matching the expected reflections with
+ the observed ones yielded the respective lattice.
+ For both samples we found a fcc crystal structure and lattice parameters
+ 
+\begin_inset Formula $a_{\textrm{NaCl}}=\unit[(5.647\pm0.004)]{\mathring{A}}$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{\textrm{Al}}=\unit[(4.055\pm0.006)]{\mathring{A}}$
+\end_inset
+
+ for table salt NaCl and Aluminum Al respectively.
+ The final step was to qualitatively analyze the intensities of vivid 
+\begin_inset Formula $(hkl)$
+\end_inset
+
+'s.
+ In general, irregular maxima are due to basis of unit cell containing more
+ then one element, as one can deduce from the structure factor 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:structure"
+
+\end_inset
+
+.
+ Despite seeing this only for the first reflection 
+\begin_inset Formula $(111)$
+\end_inset
+
+, as others were damped by inelastic diffraction, we managed to identify
+ the first sample to be NaCl by matching with data from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{database}
+\end_layout
+
+\end_inset
+
+.
+ The second sample had no such exceptionally behavior.
+ After consulting 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cite{database}
+\end_layout
+
+\end_inset
+
+ we found the second sample being Aluminum.
+\end_layout
+
+\begin_layout Standard
+We saw that powder diffractometry, especially the
+\emph on
+ 
+\emph default
+Debye-Scherre method,
+\emph on
+ 
+\emph default
+provides a reliable way to determine the lattice type and parameters of
+ simple crystal structures.
+ The obtained results can be used for other experiments, which deal with
+ Al or NaCl; e.g.
+ in angle-resolved photoemission spectroscopy to probe electronic band structure
+s.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{thebibliography}{99}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{brillouin} Wikipedia contributors, {
+\backslash
+it Brillouin zone}, Wikipedia, The Free Encyclopedia [Online], 28 July 2016,
+ https://en.wikipedia.org/wiki/Brillouin
+\backslash
+_zone.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{band} Wikipedia contributors, {
+\backslash
+it Electronic Band Structure}, Wikipedia, The Free Encyclopedia [Online],
+ 10 November 2016, https://en.wikipedia.org/wiki/Electronic
+\backslash
+_band
+\backslash
+_structure.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{miller} Wikipedia contributors, {
+\backslash
+it Miller Index}, Wikipedia, The Free Encyclopedia [Online], 26 September
+ 2016, https://en.wikipedia.org/wiki/Miller
+\backslash
+_index.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{chip} Wikipedia contributors, {
+\backslash
+it Integrated Circuit}, Wikipedia, The Free Encyclopedia [Online], 9 November
+ 2016, https://en.wikipedia.org/wiki/Integrated
+\backslash
+_circuit.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{diffraction} B.~Fultz, J.M.~Howe, {
+\backslash
+it Transmission Electron Microscopy and Diffractometry of Materials} (Springer
+ Verlag, 2013), Chapter 1.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{fkp} Hans~L
+\backslash
+"{u}th~Harald~Ibach, {
+\backslash
+it Festk
+\backslash
+"{o}rperphysik} (Springer Verlag, 2009).
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{xray} Beat Br
+\backslash
+"{a}m, {
+\backslash
+it X-Ray Diffraction}, Physics Lab VP, Department of Physics, ETH Z
+\backslash
+"{u}rich [Online] 1 April 2015, http://vp.phys.ethz.ch/Experimente/pdf/Roentgen.pdf.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{alu} M.E.~Straumanis, {
+\backslash
+it The Precision Determination of Lattice Constants by the Powder and Rotation
+ Crystal Methods and Applications}, Journal of Applied Physics (1949) 20,
+ p726-p734.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{nacl} J.E.~Nickels, M.A.~Fineman and W.E.~Wallace, {
+\backslash
+it X-Ray Diffraction Studies of Sodium Chloride - Sodium Bromide Solid Solutions
+}, Journal of Physical Chemistry (1949) 53, p625-p628.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{database} Inorganic Crystal Structure Database [Online] 9 November
+ 2016, https://icsd.fiz-karlsruhe.de/search/basic.xhtml.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{xraywiki} Wikipedia contributors, {
+\backslash
+it X-Ray Tube}, Wikipedia, The Free Encyclopedia [Online], 17 September
+ 2016, https://en.wikipedia.org/wiki/X-ray
+\backslash
+_tube.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{xrd} {
+\backslash
+it X'Menu}, Software for XRD Applications Programm, User's Guide, First
+ Edition, April~1993, PW~1873~Version~2.0.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibitem{apd} {
+\backslash
+it PC-APD}, Software for Automated Powder Diffraction, Operational Manual,
+ Fifth~Edition, February~1994, PW~1877~Version~3.6.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{thebibliography}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

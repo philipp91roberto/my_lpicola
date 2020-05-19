@@ -1,0 +1,34 @@
+This folder contains:
+
+'data/'
+A folder, in which data from GADGET-2 and L-PICOLA simulation 
+of a 100 Mpc box with 128^3 particles are stored.
+
+'healpy_maps/'
+A folder, in which HEALPix maps of the potential and density 
+of the data in 'data/' are stored.
+
+'plots/'
+A folder, in which various python plots of the data in 'data/' 
+are stored.
+
+'sim_slice_images/'
+A folder with python images of the snapshot outputs (slices).
+
+'data2array.py'
+A python script, which reads the data of every simulation output 
+(slices) and stores them into one numpy array from GAFGET-2 and 
+L-PICOLA.
+
+'fft-spolver.py'
+A python script, which contains routines to solve the poisson eq. 
+of the peculiar gravitational potential from the particles position 
+and an Cloud-in-Cell algorithm.
+
+'healpy_plotter.py'
+A python script, which contains functions to plot the potential and 
+density from the data in 'data/' as HEALPix maps.
+
+'lpicola_vs_gadget_partpot.ipynb'
+A python notebook, which contains routines, function calls to read, 
+write data, make plots and maps, evaluate data, etc.

@@ -1,0 +1,40 @@
+#What is QdD1da() function at line 151 in cosmo.c supposed to do? 
+
+#Should a member of gadget header be created, which holds "GPot"? 
+
+#Is the variable "fac" in lightcone.c relevant for calculating the potential at specific redshift?
+
+#Must the potential be interpolated like the position or velocity in the lightcone sim?
+ If that's the case, then the way the potential is stored in function "Drift_Lightcone" of lightcone.c must be alterned.
+ We probably have to reconsider the memory allocation for storing the information about each particle.
+ The definiton of the pointer "block" in lightcone.c holds the allocated memory.
+
+#Is any information about the gravitational potentail notable in the *.info file?
+
+#I'm not sure about the assignement of the FFT'ed potential "dens"
+ in the function "Forces" of the code auxPM.c.
+
+#The forces "N1*" are treated in the parallelisation process
+ at the end of function "Forces". I think GPot needs one as well.
+
+#What are the main differencies between gaussianity, non-gaussianity, generic non-gaussianity
+ with respect to the gravitational potential?
+
+#What is actually the variable "cp1p2p3tre" meant to be for?
+ It seems like it isn't used in the non-local part any more.
+
+GAUSSIAN --- gaussian
+ 	 \
+	  \
+	   \
+	     non-gaussian | GENERIC_FNL --- generic
+	 	 		        \
+				         \
+			 	          \ 
+				            non-generic | LOCAL_FNL --- local
+								    \
+								     \
+								      \ 
+									non-local
+
+#Created a new option to output the gravitational potential on the grid.

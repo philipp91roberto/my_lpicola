@@ -1,0 +1,16 @@
+This folder 'scripts' contains:
+
+'read_data_with_potential.py'
+A python script to read the snapshot output of L-PICOLA 
+with POTENTIAL enabled. It stores the postion, velocity 
+and potential in arrays with shapes (N,3), (N,3), (N,1) 
+respectively, where N is the number of particles in the 
+snapshot slice.
+
+'read_potentia√lgrid.py'
+A python script to read the snapshot output of √L-PICOLA 
+with POTENTIAL and GONGRID enabled. It stores the potential 
+on a mesh as an array with shape (N,4), where N is the 
+number of particles in the slice√. The first 3 elements 
+of the last axis are the particle's coordinates and the 4th
+is the potentia√l value on that position.
